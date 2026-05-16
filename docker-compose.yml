@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  jupyter-notebook:
+    build: .
+    container_name: ml-project-container
+    ports:
+      - "8888:8888"
+    volumes:
+      # Монтируем локальные папки в контейнер
+      - ./notebooks:/app/notebooks
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./report:/app/report
+      - ./models:/app/models
+      - ./presentation:/app/presentation
+      - ./tests:/app/tests
+    environment:
+      - JUPYTER_TOKEN=
+    command: >
+      jupyter notebook 
+      --ip=0.0.0.0 
+      --port=8888 
+      --no-browser 
+      --allow-root 
+      --NotebookApp.token=''
