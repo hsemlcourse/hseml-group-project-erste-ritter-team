@@ -33,7 +33,7 @@ def load_and_clean_data(data_path="data/raw/"):
         (orders["is_delivered"] == 1)
     ).astype('int32')
 
-    # CLEAN products
+    # clean products
     products["product_category_name"] = products["product_category_name"].fillna("unknown")
 
     for col in ["product_name_lenght", "product_description_lenght", "product_photos_qty"]:
@@ -88,8 +88,7 @@ def create_features(df):
 
     return df
 
-# TARGET
-
+# таргет
 def create_target(df):
     COST_PER_GRAM = 0.02
 
