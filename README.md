@@ -43,9 +43,9 @@
 │   └── raw                     # Исходные файлы
 ├── models                      # Сохранённые модели 
 ├── notebooks
-│   ├── 01_eda.ipynb            # EDA
-│   ├── 02_baseline.ipynb       # Baseline-модель
-│   └── 03_experiments.ipynb    # Эксперименты и ablation study
+│   ├── eda.ipynb            # EDA
+│   ├── baseline.ipynb       # Baseline-модель
+│   └── experiments.ipynb    # Эксперименты и ablation study (_desktop - версия для запуска локально), (_kaggle) - версия, которую я запускал на kaggle, все модели обучены там
 ├── presentation                # Презентация для защиты
 ├── report
 │   ├── images                  # Изображения для отчёта
@@ -57,6 +57,8 @@
 │   └── test.py                 # Тесты пайплайна
 ├── requirements.txt
 └── README.md
+|__ Dockerfile
+|__ Makefile
 ```
 
 ## Запуск
@@ -72,8 +74,10 @@ python -m venv .venv
 source .venv/bin/activate   # Linux/macOS
 # .venv\Scripts\activate    # Windows
 
-# 3. Установить зависимости
-pip install -r requirements.txt
+# 3. Линтерны
+make install    # Установка зависимостей
+make lint       # Проверка кода
+make run        # Запуск Jupyter
 ```
 
 ## Данные
@@ -82,12 +86,10 @@ pip install -r requirements.txt
 
 
 ## Результаты
-Здесь коротко выпишите результаты.
-| Модель | [Метрика 1] | [Метрика 2] | Примечание |
-|--------|-------------|-------------|------------|
-| Baseline | — | — | |
-| Лучшая модель | — | — | |
-
+| Модель | Параметры | Метрика - ROC-AUC | Примечание |
+|--------|-----------|-------------------|-------------|
+| Random Forest (Baseline) | `n_estimators=50, random_state=42` | 0.7851 | Базовая точка отсчёта, стабильный результат без тюнинга |
+| Random Forest Tuned (Лучшая модель) | `n_estimators=300, max_depth=20, random_state=2804` | 0.8463 | Самая удачная модель для этой задачи на таких данных |
 
 ## Отчёт
 
