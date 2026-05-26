@@ -174,7 +174,7 @@ API доступно по адресу `http://127.0.0.1:8000/docs`:
 
 ### Видео демонстрации
 
-[Ссылка на видео] [Google Disk](https://drive.google.com/...)
+[Ссылка на видео] [Google Disk](https://drive.google.com/drive/folders/1hydOaS5_G5vTB0e5za5bPGyVwSP5Sd4c?usp=drive_link)
 
 ---
 
